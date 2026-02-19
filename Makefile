@@ -46,7 +46,7 @@ REPO_INFO ?= $(shell git config --get remote.origin.url)
 COMMIT_SHA ?= git-$(shell git rev-parse --short HEAD)
 BUILD_ID ?= "UNSET"
 
-PKG = github.io/myborislavrorg/ingress-nginx
+PKG = k8s.io/ingress-nginx
 
 HOST_ARCH = $(shell which go >/dev/null 2>&1 && go env GOARCH)
 ARCH ?= $(HOST_ARCH)
