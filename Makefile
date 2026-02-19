@@ -46,7 +46,7 @@ REPO_INFO ?= $(shell git config --get remote.origin.url)
 COMMIT_SHA ?= git-$(shell git rev-parse --short HEAD)
 BUILD_ID ?= "UNSET"
 
-PKG = k8s.io/ingress-nginx
+PKG = github.io/myborislavrorg/ingress-nginx
 
 HOST_ARCH = $(shell which go >/dev/null 2>&1 && go env GOARCH)
 ARCH ?= $(HOST_ARCH)
@@ -58,7 +58,7 @@ ifneq ($(PLATFORM),)
 	PLATFORM_FLAG="--platform"
 endif
 
-REGISTRY ?= us-central1-docker.pkg.dev/k8s-staging-images/ingress-nginx
+REGISTRY ?= ghcr.io/myborislavrorg/ingres-nginx
 
 BASE_IMAGE ?= $(shell cat NGINX_BASE)
 
