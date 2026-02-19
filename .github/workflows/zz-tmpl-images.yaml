@@ -78,5 +78,5 @@ jobs:
 
     - name: Push
       run: |
-          cd images/ && make REGISTRY=${GITHUB_REPOSITORY_OWNER,,}/ingressnginx NAME=${{ inputs.name }} push
+          cd images/ && make REGISTRY=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/ingressnginx NAME=${{ inputs.name }} push
 
