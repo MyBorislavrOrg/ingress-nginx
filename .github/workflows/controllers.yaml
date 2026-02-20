@@ -13,9 +13,6 @@ on:
     paths:
       - 'rootfs/**'
   workflow_dispatch: {}
-permissions:
-  contents: write
-  packages: write
 
 env:
   PLATFORMS: linux/amd64
@@ -92,15 +89,15 @@ jobs:
         with:
           version: latest
           platforms: ${{ env.PLATFORMS }}
+      - name: build-go
+        run: |
+          make build
       - name: Login to GitHub Container Registry
         uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3.7.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: build-go
-        run: |
-          make build
       - name: build-images
         run: |
-          sudo make release
+          make release

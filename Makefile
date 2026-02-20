@@ -122,7 +122,7 @@ build:  ## Build ingress controller, debug tool and pre-stop hook.
 
 .PHONY: clean
 clean: ## Remove .gocache directory.
-	rm -rf bin/ .gocache/ .cache/
+	sudo rm -rf bin/ .gocache/ .cache/
 
 .PHONY: verify-docs
 verify-docs: ## Verify doc generation
