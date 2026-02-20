@@ -103,4 +103,4 @@ jobs:
           make build
       - name: build-images
         run: |
-          make release
+          sudo make release
