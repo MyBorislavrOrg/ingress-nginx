@@ -14,9 +14,6 @@ on:
       - 'rootfs/**'
   workflow_dispatch: {}
 
-env:
-  PLATFORMS: linux/amd64
-
 jobs:
   changes:
     permissions:
