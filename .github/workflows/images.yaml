@@ -152,7 +152,7 @@ jobs:
         check-latest: true
     - name: image build
       run: |
-        cd images/ && make NAME=kube-webhook-certgen build
+        cd images/ && make NAME=kube-webhook-certgen push
     - name: Create Kubernetes cluster
       id: kind
       run: |
@@ -191,5 +191,5 @@ jobs:
       - name: build-rootfs-image
         run: |
           export TAG=$(cat images/nginx/TAG)
-          export IMG_NAME=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/ingressnginx/nginx
+          export IMG_NAME=ghcr.io/${GITHUB_REPOSITORY_OWNER,,}/ingress-nginx/nginx
           cd images/nginx/rootfs && docker buildx build --platform=${{ env.PLATFORMS }} --push -t ${IMG_NAME}:${TAG} .
