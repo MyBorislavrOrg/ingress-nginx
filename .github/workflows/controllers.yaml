@@ -62,6 +62,7 @@ jobs:
         command:
           - image
           - image-chroot
+          - release
     name: ${{ matrix.command }}
     steps:
       - name: Checkout
