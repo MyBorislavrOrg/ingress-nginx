@@ -54,7 +54,7 @@ jobs:
       packages: write
     runs-on: ubuntu-latest
     needs: changes
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.changes.outputs.rootfs == 'true')
+    if: (github.event_name == 'workflow_dispatch') || (github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.changes.outputs.rootfs == 'true')
     env:
       PLATFORMS: linux/amd64,linux/arm,linux/arm64
     strategy:
